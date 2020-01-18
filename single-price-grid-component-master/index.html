@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Single Price Grid Component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Karla";
+        font-weight: 400;
+        font-size: 1rem;
+      }
+      .site-background {
+        background-color: hsl(204, 43%, 93%);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3.5rem 2rem;
+      }
+      .component-wrapper {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0px 0px 1rem 0.3rem rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+      .text {
+        line-height: 1.75rem;
+        font-size: 0.9rem;
+      }
+      .text--dark {
+        color: #a5a8ad;
+      }
+      .text--white {
+        color: white;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .card--community {
+        background-color: white;
+      }
+      .card--community > .tagline {
+        color: hsl(71, 73%, 54%);
+      }
+      .card--community > .card__header {
+        color: #32a596;
+      }
+      .card--cta {
+        background-color: #2eb1b2;
+      }
+      .tagline--special {
+        margin-top: 1.5rem;
+        color: #82e6e6;
+        display: flex;
+        flex-direction: row;
+      }
+      .card--cta__price {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-right: 0.5rem;
+        line-height: 1rem;
+      }
+      .card--cta > .tagline {
+        color: #d2ffff;
+      }
+      .button {
+        background-color: hsl(71, 73%, 54%);
+        color: #feffc6;
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+        border-radius: 0.4rem;
+        text-decoration: none;
+        transition: 0.2s;
+        box-shadow: 0px 0px 1rem 0.5rem rgba(0, 0, 0, 0.1);
+      }
+      .button:hover {
+        background-color: hsla(71, 73%, 54%, 0.6);
+      }
+      .card--reasons {
+        background-color: #49bebd;
+      }
+      .card__links {
+        margin: 0;
+      }
+      .card__links > a {
+        display: block;
+        text-decoration: none;
+        color: #b5ffff;
+        transition: 0.3s;
+        line-height: 1.25rem;
+        font-size: 0.85rem;
+      }
+      .card__links > a:hover {
+        filter: opacity(0.6);
+      }
+      .card__header {
+        margin-top: 0;
+      }
+      @media only screen and (min-width: 700px) {
+        .site-wrapper {
+          padding: 0;
+        }
+        .component-wrapper {
+          width: 638px;
+          flex-direction: row;
+          /* width: 500px; */
+        }
+        .card__header {
+          margin: 1rem 0;
+        }
+        .tagline {
+          font-size: 1.1rem;
+        }
+        .text {
+          font-size: 1rem;
+          margin-bottom: 0;
+        }
+        .card {
+          padding: 2.25rem;
+        }
+        .card--community > .card__header {
+          font-size: 1.5rem;
+          margin-top: 0.5rem;
+          margin-bottom: 1.5rem;
+        }
+        .card--community > .tagline {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .card--community > .text {
+          margin-top: 0.7rem;
+        }
+        .card--cta {
+          width: 50%;
+        }
+        .card--cta > .card__header {
+          margin-top: 0;
+        }
+        .card--cta > .tagline {
+          font-size: 1rem;
+        }
+        .card--reasons {
+          width: 50%;
+        }
+        .card--reasons > .card__header {
+          margin-top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="site-background">
+    <main class="component-wrapper">
+      <section class="card card--community">
+        <h3 class="card__header">Join our community</h3>
+        <p class="tagline">30-day, hassle-free money back guarantee</p>
+        <p class="text text--dark">
+          Gain access to our full library of tutorials along with expert code
+          reviews. Perfect for any developers who are serious about honing their
+          skills.
+        </p>
+      </section>
+      <section class="card card--cta">
+        <h3 class="card__header text--white">Monthly Subscription</h3>
+        <p class="tagline--special">
+          <span class="card--cta__price text--white">&dollar;29&nbsp;</span
+          ><span>per month</span>
+        </p>
+        <p class="tagline">
+          Full access for less than &dollar;1 a day
+        </p>
+        <a href="#" class="button">Sign Up</a>
+      </section>
+      <section class="card card--reasons text--white">
+        <h3 class="card__header">Why Us</h3>
+        <p class="card__links">
+          <a href="#">Tutorials by industry experts</a>
+          <a href="#">Peer &amp; expert code review</a>
+          <a href="#">Coding exercise</a>
+          <a href="#">Access to our GitHub repos</a>
+          <a href="#">Community forum</a>
+          <a href="#">Flashcard decks</a>
+          <a href="#">New videos every week</a>
+        </p>
+      </section>
+    </main>
+    <!-- <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Jun Huang</a>.
+      </p>
+    </footer> -->
+  </body>
+</html>
