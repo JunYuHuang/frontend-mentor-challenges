@@ -1,6 +1,6 @@
 Challenge Difficulties in increasing order (Newbie --> Advanced)
 
 1. single-price-grid-component - completed
-2. insure-landing-page
+2. insure-landing-page - completed
 3. bookmark-landing-page
 4. rest-countries-api-with-color-scheme-switcher
