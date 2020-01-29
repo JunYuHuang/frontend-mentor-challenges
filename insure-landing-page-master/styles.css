@@ -282,6 +282,7 @@ hr {
   background-image: url("./images/bg-pattern-how-we-work-mobile.svg");
   background-repeat: no-repeat;
   background-position: top right;
+  padding: 2rem;
 }
 
 .feature-grid {
