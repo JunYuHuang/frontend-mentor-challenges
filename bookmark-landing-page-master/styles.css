@@ -153,6 +153,10 @@ h3,
   z-index: 510;
 }
 
+.nav-menu-button:hover {
+  background-color: unset;
+}
+
 .nav-menu {
   display: block;
   background-color: var(--color-very-dark-blue-transparent);
@@ -253,7 +257,6 @@ h3,
 
 .button:hover {
   cursor: pointer;
-  background-color: white;
 }
 
 .button--blue {
@@ -265,6 +268,7 @@ h3,
 
 .button--blue:hover {
   color: var(--color-soft-blue);
+  background-color: var(--color-white);
 }
 
 .button--offwhite {
@@ -278,6 +282,7 @@ h3,
 
 .button--offwhite:hover {
   color: #646371;
+  background-color: var(--color-white);
   border: 0.15rem solid #646371;
 }
 
@@ -290,6 +295,7 @@ h3,
 
 .button--red:hover {
   color: var(--color-soft-red);
+  background-color: var(--color-white);
 }
 
 .button--no-hover {
