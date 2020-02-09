@@ -135,22 +135,32 @@
             can access them on the go.
           </p>
         </article>
-        <div class="carousel">
-          <div class="carousel__controls">
-            <a
-              href="#"
-              class="carousel__control__option carousel__control__option--active"
-              >Simple Bookmarking</a
+        <div class="tab-group">
+          <div class="tab__controls">
+            <button
+              class="button button--tab button--tab--active"
+              data-tab-display-item-target="tab__display__item--bookmark"
             >
-            <a href="#" class="carousel__control__option">Speedy Searching</a>
-            <a href="#" class="carousel__control__option">Easy Sharing</a>
+              Simple Bookmarking
+            </button>
+            <button
+              class="button button--tab"
+              data-tab-display-item-target="tab__display__item--search"
+            >
+              Speedy Searching
+            </button>
+            <button
+              class="button button--tab"
+              data-tab-display-item-target="tab__display__item--share"
+            >
+              Easy Sharing
+            </button>
           </div>
-          <div class="carousel__display">
+          <div class="tab__display">
             <div
-              id="carousel__display__item--bookmark"
-              class="carousel__display__item carousel__display__item--active"
+              class="tab__display__item tab__display__item--bookmark tab__display__item--active"
             >
-              <div class="img-wrapper img-wrapper--carousel">
+              <div class="img-wrapper img-wrapper--tab">
                 <img src="./images/illustration-features-tab-1.svg" alt="ass" />
               </div>
               <article>
@@ -168,11 +178,8 @@
                 </button>
               </article>
             </div>
-            <div
-              id="carousel__display__item--search"
-              class="carousel__display__item"
-            >
-              <div class="img-wrapper img-wrapper--carousel">
+            <div class="tab__display__item tab__display__item--search">
+              <div class="img-wrapper img-wrapper--tab">
                 <img src="./images/illustration-features-tab-2.svg" alt="ass" />
               </div>
               <article>
@@ -190,11 +197,8 @@
                 </button>
               </article>
             </div>
-            <div
-              id="carousel__display__item--share"
-              class="carousel__display__item"
-            >
-              <div class="img-wrapper img-wrapper--carousel">
+            <div class="tab__display__item tab__display__item--share">
+              <div class="img-wrapper img-wrapper--tab">
                 <img src="./images/illustration-features-tab-3.svg" alt="ass" />
               </div>
               <article>
@@ -297,7 +301,7 @@
         <div class="accordion">
           <div class="accordion__item">
             <button role="button" class="button button--accordion">
-              What is Bookmark?
+              <div class="button--accordion__text">What is Bookmark?</div>
               <svg
                 class="accordion__item__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +325,9 @@
           </div>
           <div class="accordion__item">
             <button role="button" class="button button--accordion">
-              How can I request a new browser?
+              <div class="button--accordion__text">
+                How can I request a new browser?
+              </div>
               <svg
                 class="accordion__item__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -348,7 +354,7 @@
           </div>
           <div class="accordion__item">
             <button role="button" class="button button--accordion">
-              Is there a mobile app?
+              <div class="button--accordion__text">Is there a mobile app?</div>
               <svg
                 class="accordion__item__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -373,7 +379,9 @@
           </div>
           <div class="accordion__item">
             <button role="button" class="button button--accordion">
-              What about other Chromium browsers?
+              <div class="button--accordion__text">
+                What about other Chromium browsers?
+              </div>
               <svg
                 class="accordion__item__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -410,7 +418,7 @@
         <h2 class="h2 heading text-light">
           Stay up-to-date with what we’re doing
         </h2>
-        <form action="#" class="form" method="POST">
+        <form action="" class="form" method="POST">
           <input
             type="email"
             class="form__input form__input--email"
