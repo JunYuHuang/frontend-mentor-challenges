@@ -15,7 +15,14 @@ const tabDisplayItems = document.querySelectorAll(".tab__display__item");
 
 const accordionButtons = document.querySelectorAll(".button--accordion");
 
-const form = document.querySelector("form");
+const form = document.querySelector(".form");
+const formGroupInputEmailContainer = document.querySelector(".form-group");
+const formGroupInputEmail = document.querySelector(".form-group__input__email");
+const formGroupErrorIcon = document.querySelector(".img-wrapper--icon-error");
+const formGroupMessage = document.querySelector(".form-group__message");
+const formGroupInputSubmit = document.querySelector(
+  ".form-group__input__submit"
+);
 
 // EVENT LISTENERS //
 navMenuButton.addEventListener("click", () => {
@@ -61,7 +68,11 @@ tabControlPanel.addEventListener("click", e => {
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  console.log("email submitted");
+  validateEmailForm();
+});
+
+formGroupInputEmail.addEventListener("invalid", () => {
+  validateEmailForm();
 });
 
 // FUNCTIONS //
@@ -134,4 +145,39 @@ function toggleTabDisplayItem(e) {
       }
     }
   });
+}
+
+function validateEmailForm() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (
+    formGroupInputEmail.value === "" ||
+    !emailRegex.test(formGroupInputEmail.value)
+  ) {
+    // input invalid
+    // only add error message and visuals if they are not present
+    if (!formGroupInputEmail.classList.contains("form-group__input--error")) {
+      toggleEmailFormErrorMessage();
+    }
+    // shake email input
+    formGroupInputEmailContainer.classList.toggle("shake-horizontal");
+    setTimeout(() => {
+      formGroupInputEmailContainer.classList.toggle("shake-horizontal");
+    }, 500);
+  } else {
+    // input valid
+    // remove error message and visuals if they are present
+    if (formGroupInputEmail.classList.contains("form-group__input--error")) {
+      toggleEmailFormErrorMessage();
+    }
+    // show user "success" visuals
+    formGroupInputEmail.disabled = true;
+    formGroupInputSubmit.value = "Joined!";
+    formGroupInputSubmit.disabled = true;
+  }
+}
+
+function toggleEmailFormErrorMessage() {
+  formGroupInputEmail.classList.toggle("form-group__input--error");
+  formGroupErrorIcon.classList.toggle("img-wrapper--icon-error--active");
+  formGroupMessage.classList.toggle("form-group__message--active");
 }

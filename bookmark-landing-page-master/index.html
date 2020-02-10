@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <nav class="navbar">
-        <div class="logo-wrapper">
+        <div class="logo-wrapper" aria-label="Logo Image for Bookmark">
           <svg
             class="logo-image"
             width="148"
@@ -91,8 +91,11 @@
             </a>
           </li>
         </ul>
-        <button role="button" class="button nav-menu-button">
-          <!-- <span class="nav-menu-button-icon"></span> -->
+        <button
+          role="button"
+          aria-label="Mobile Navigation Button"
+          class="button nav-menu-button"
+        >
           <img
             src="./images/icon-hamburger.svg"
             alt="A icon of a hamburger navigation menu."
@@ -117,10 +120,18 @@
             free.
           </p>
           <div class="button-container button-container--intro">
-            <button role="button" class="button button--blue">
+            <button
+              role="button"
+              aria-label="Get Bookmark on Chrome"
+              class="button button--blue"
+            >
               Get it on Chrome
             </button>
-            <button role="button" class="button button--offwhite">
+            <button
+              role="button"
+              aria-label="Get Bookmark on Firefox"
+              class="button button--offwhite"
+            >
               Get it on Firefox
             </button>
           </div>
@@ -139,18 +150,21 @@
           <div class="tab__controls">
             <button
               class="button button--tab button--tab--active"
+              aria-label="Display the tab for Simple Bookmarking"
               data-tab-display-item-target="tab__display__item--bookmark"
             >
               Simple Bookmarking
             </button>
             <button
               class="button button--tab"
+              aria-label="Display the tab for Speedying Searching"
               data-tab-display-item-target="tab__display__item--search"
             >
               Speedy Searching
             </button>
             <button
               class="button button--tab"
+              aria-label="Display the tab for Easy Sharing"
               data-tab-display-item-target="tab__display__item--share"
             >
               Easy Sharing
@@ -191,6 +205,7 @@
                 </p>
                 <button
                   role="button"
+                  aria-label="More Info about Intelligent Search"
                   class="button button--blue button--more-info hidden-in-mobile"
                 >
                   More Info
@@ -210,6 +225,7 @@
                 </p>
                 <button
                   role="button"
+                  aria-label="More Info about sharing your bookmarks"
                   class="button button--blue button--more-info hidden-in-mobile"
                 >
                   More Info
@@ -243,7 +259,11 @@
               <img src="./images/bg-dots.svg" alt="A horizontal line of dots" />
             </div>
             <div class="button-container button-container--downloads">
-              <button role="button" class="button button--blue">
+              <button
+                role="button"
+                aria-label="Add and install Bookmark extension for Chrome"
+                class="button button--blue"
+              >
                 Add & Install Extension
               </button>
             </div>
@@ -263,7 +283,11 @@
               <img src="./images/bg-dots.svg" alt="A horizontal line of dots" />
             </div>
             <div class="button-container button-container--downloads">
-              <button role="button" class="button button--blue">
+              <button
+                role="button"
+                aria-label="Add and install Bookmark extension for Firefox"
+                class="button button--blue"
+              >
                 Add & Install Extension
               </button>
             </div>
@@ -283,7 +307,11 @@
               <img src="./images/bg-dots.svg" alt="A horizontal line of dots" />
             </div>
             <div class="button-container button-container--downloads">
-              <button role="button" class="button button--blue">
+              <button
+                role="button"
+                aria-label="Add and install Bookmark extension for Opera"
+                class="button button--blue"
+              >
                 Add & Install Extension
               </button>
             </div>
@@ -300,7 +328,11 @@
         </article>
         <div class="accordion">
           <div class="accordion__item">
-            <button role="button" class="button button--accordion">
+            <button
+              role="button"
+              aria-label="Display answer to What is Bookmark?"
+              class="button button--accordion"
+            >
               <div class="button--accordion__text">What is Bookmark?</div>
               <svg
                 class="accordion__item__icon"
@@ -324,7 +356,11 @@
             </p>
           </div>
           <div class="accordion__item">
-            <button role="button" class="button button--accordion">
+            <button
+              role="button"
+              aria-label="Display answer to How can I request a new browser?"
+              class="button button--accordion"
+            >
               <div class="button--accordion__text">
                 How can I request a new browser?
               </div>
@@ -353,7 +389,11 @@
             </p>
           </div>
           <div class="accordion__item">
-            <button role="button" class="button button--accordion">
+            <button
+              role="button"
+              aria-label="Display answer to Is there a mobile app?"
+              class="button button--accordion"
+            >
               <div class="button--accordion__text">Is there a mobile app?</div>
               <svg
                 class="accordion__item__icon"
@@ -378,7 +418,11 @@
             </p>
           </div>
           <div class="accordion__item">
-            <button role="button" class="button button--accordion">
+            <button
+              role="button"
+              aria-label="Display answer to What about other Chromium browsers?"
+              class="button button--accordion"
+            >
               <div class="button--accordion__text">
                 What about other Chromium browsers?
               </div>
@@ -406,6 +450,7 @@
         </div>
         <button
           role="button"
+          aria-label="More Info for Frequently Asked Questions"
           class="button button--blue button--more-info button--no-hover"
         >
           More Info
@@ -418,17 +463,32 @@
         <h2 class="h2 heading text-light">
           Stay up-to-date with what we’re doing
         </h2>
-        <form action="" class="form" method="POST">
-          <input
-            type="email"
-            class="form__input form__input--email"
-            placeholder="Enter your email address"
-          />
-          <span class="form__message">Whoops, make sure it's an email</span>
+        <form action="/" class="form" method="GET">
+          <div class="form-group">
+            <input
+              type="email"
+              id="form-group__input__email"
+              class="form-group__input form-group__input__email"
+              placeholder="Enter your email address"
+            />
+            <label class="form-group__label" for="form-group__input__email"
+              >Enter your email address</label
+            >
+            <div class="img-wrapper img-wrapper--icon-error">
+              <img
+                src="./images/icon-error.svg"
+                alt="An error icon depicting a white exclamation mark inside a red circle."
+              />
+            </div>
+            <span class="form-group__message"
+              >Whoops, make sure it's an email</span
+            >
+          </div>
           <input
             role="button"
+            aria-label="Join email subscription list for Bookmark"
             type="submit"
-            class="form__input button button--red"
+            class="form-group__input form-group__input__submit button button--red"
             value="Contact Us"
           />
         </form>
