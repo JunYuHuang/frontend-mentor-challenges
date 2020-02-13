@@ -1068,7 +1068,7 @@ h3,
     margin-right: 0;
     margin-bottom: 0;
     width: 100%;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 3.5%;
   }
 
@@ -1149,15 +1149,16 @@ h3,
   .tab__display__item--active {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: space-between;
     text-align: left;
-    margin-right: 11.3%;
-    margin-left: 11.3%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .tab__display__item--active > article {
     margin-top: 68px;
-    width: calc(50% - 10%);
+    margin-right: 11.3%;
+    width: calc(60%);
     z-index: 2;
   }
 
@@ -1168,14 +1169,11 @@ h3,
   }
 
   .img-wrapper--tab {
-    margin-left: -11.3%;
+    margin-left: 0;
     margin-right: 0;
-    padding-left: 22.6%;
-    position: relative;
+    padding-left: 11.3%;
     width: 100%;
     justify-content: flex-start;
-    position: absolute;
-    left: 0;
   }
 
   .img-wrapper--tab::after {
