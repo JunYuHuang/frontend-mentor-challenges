@@ -53,7 +53,8 @@ navMenu.addEventListener("click", e => {
     let isSocialLink = e.target.parentNode.classList.contains(
       "social-links__item"
     );
-    if (isNavMenuItemLink || isSocialLink) {
+    let isSVGIcon = e.target.parentNode.classList.contains("icon");
+    if (isNavMenuItemLink || isSocialLink || isSVGIcon) {
       toggleNavButton();
       toggleLogoColours();
       body.style.overflow = "auto";

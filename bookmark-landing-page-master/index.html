@@ -57,7 +57,7 @@
           <li class="nav-menu__item">
             <a class="nav-menu__link" href="#">Contact</a>
           </li>
-          <li class="nav-menu__item">
+          <li class="nav-menu__item nav-menu__item--login">
             <a class="nav-menu__link nav-menu__link--login" href="#">Login</a>
           </li>
           <li class="social-links">
@@ -178,18 +178,20 @@
                 <img src="./images/illustration-features-tab-1.svg" alt="ass" />
               </div>
               <article>
-                <h2 class="h2 heading">Bookmark in one click</h2>
-                <p>
-                  Organize your bookmarks however you like. Our simple
-                  drag-and-drop interface gives you complete control over how
-                  you manage your favourite sites.
-                </p>
-                <button
-                  role="button"
-                  class="button button--blue button--more-info hidden-in-mobile"
-                >
-                  More Info
-                </button>
+                <div class="tab__display__item__text-wrapper">
+                  <h2 class="h2 heading">Bookmark in one click</h2>
+                  <p>
+                    Organize your bookmarks however you like. Our simple
+                    drag-and-drop interface gives you complete control over how
+                    you manage your favourite sites.
+                  </p>
+                  <button
+                    role="button"
+                    class="button button--blue button--more-info hidden-in-mobile"
+                  >
+                    More Info
+                  </button>
+                </div>
               </article>
             </div>
             <div class="tab__display__item tab__display__item--search">
@@ -197,19 +199,21 @@
                 <img src="./images/illustration-features-tab-2.svg" alt="ass" />
               </div>
               <article>
-                <h2 class="h2 heading">Intelligent search</h2>
-                <p>
-                  Our powerful search feature will help you find saved sites in
-                  no time at all. No need to trawl through all of your
-                  bookmarks.
-                </p>
-                <button
-                  role="button"
-                  aria-label="More Info about Intelligent Search"
-                  class="button button--blue button--more-info hidden-in-mobile"
-                >
-                  More Info
-                </button>
+                <div class="tab__display__item__text-wrapper">
+                  <h2 class="h2 heading">Intelligent search</h2>
+                  <p>
+                    Our powerful search feature will help you find saved sites
+                    in no time at all. No need to trawl through all of your
+                    bookmarks.
+                  </p>
+                  <button
+                    role="button"
+                    aria-label="More Info about Intelligent Search"
+                    class="button button--blue button--more-info hidden-in-mobile"
+                  >
+                    More Info
+                  </button>
+                </div>
               </article>
             </div>
             <div class="tab__display__item tab__display__item--share">
@@ -217,19 +221,21 @@
                 <img src="./images/illustration-features-tab-3.svg" alt="ass" />
               </div>
               <article>
-                <h2 class="h2 heading">Share your bookmarks</h2>
-                <p>
-                  Easily share your bookmarks and collections with others.
-                  Create a shareable link that you can send at the click of a
-                  button.
-                </p>
-                <button
-                  role="button"
-                  aria-label="More Info about sharing your bookmarks"
-                  class="button button--blue button--more-info hidden-in-mobile"
-                >
-                  More Info
-                </button>
+                <div class="tab__display__item__text-wrapper">
+                  <h2 class="h2 heading">Share your bookmarks</h2>
+                  <p>
+                    Easily share your bookmarks and collections with others.
+                    Create a shareable link that you can send at the click of a
+                    button.
+                  </p>
+                  <button
+                    role="button"
+                    aria-label="More Info about sharing your bookmarks"
+                    class="button button--blue button--more-info hidden-in-mobile"
+                  >
+                    More Info
+                  </button>
+                </div>
               </article>
             </div>
           </div>
@@ -451,7 +457,7 @@
         <button
           role="button"
           aria-label="More Info for Frequently Asked Questions"
-          class="button button--blue button--more-info button--no-hover"
+          class="button button--blue button--more-info"
         >
           More Info
         </button>
@@ -464,7 +470,7 @@
           Stay up-to-date with what we’re doing
         </h2>
         <form action="/" class="form" method="GET">
-          <div class="form-group">
+          <div class="form-group form-group--email">
             <input
               type="email"
               id="form-group__input__email"
@@ -484,13 +490,15 @@
               >Whoops, make sure it's an email</span
             >
           </div>
-          <input
-            role="button"
-            aria-label="Join email subscription list for Bookmark"
-            type="submit"
-            class="form-group__input form-group__input__submit button button--red"
-            value="Contact Us"
-          />
+          <div class="form-group form-group--submit">
+            <input
+              role="button"
+              aria-label="Join email subscription list for Bookmark"
+              type="submit"
+              class="form-group__input form-group__input__submit button button--red"
+              value="Contact Us"
+            />
+          </div>
         </form>
       </section>
     </main>
