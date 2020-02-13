@@ -11,7 +11,6 @@
   --color-very-dark-blue-transparent: hsla(229, 31%, 21%, 0.98);
   --color-offwhite: #f7f7f7;
   --color-white: #fff;
-
   /* base settings */
   font-family: "Rubik", sans-serif;
   font-weight: 400;
@@ -205,7 +204,6 @@ h3,
 
 /* nav */
 .navbar {
-  /* background-color: gray; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -243,7 +241,8 @@ h3,
   flex-direction: column;
   justify-content: center;
   z-index: 510;
-  padding-left: 1rem;
+  padding: 1rem;
+  margin: -1rem;
 }
 
 .nav-menu-button:hover {
@@ -425,12 +424,12 @@ h3,
 .button--tab--active::after {
   position: absolute;
   content: "";
-  width: 144px;
+  width: 46.3%;
   height: 3.5px;
   background-color: var(--color-soft-red);
   bottom: 0;
   left: 50%;
-  margin-left: -72px;
+  margin-left: calc(46.3% / -2);
   animation: transitionEffectFadeAndSlideUp 0.3s ease-in-out;
 }
 
@@ -828,13 +827,10 @@ h3,
   .button--red {
     padding: 0.85rem 22.8px;
   }
-  .button--more-info {
-    padding: 0.85rem 1.5rem;
-  }
 
   .section {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 25%;
+    padding-right: 25%;
   }
 
   .img-wrapper {
@@ -942,6 +938,44 @@ h3,
     display: none;
   }
 
+  /* intro section */
+  .img-wrapper--intro {
+    margin-left: -50%;
+    margin-right: -50%;
+  }
+
+  /* features section */
+  .button--tab--active::after {
+    width: 50%;
+    left: 50%;
+    margin-left: calc(-50% / 2);
+  }
+
+  .img-wrapper--tab {
+    margin-left: -50%;
+    margin-right: -50%;
+  }
+
+  .tab__display__item--active .button--more-info {
+    margin: 0 auto;
+    margin-top: 33px;
+    display: block;
+  }
+
+  /* downloads section */
+  .card {
+    max-width: 33%;
+    min-width: 280px;
+  }
+
+  .img-wrapper--dots {
+    margin: 32px -1.5rem 1.5rem -1.5rem;
+  }
+
+  .img-wrapper--dots > img {
+    width: 150%;
+  }
+
   /* footer */
   .footer {
     background-color: var(--color-very-dark-blue);
@@ -980,7 +1014,7 @@ h3,
     right: 0;
     bottom: 0;
     width: auto;
-    margin-right: 11.3%;
+    margin-right: 2rem;
     height: 91px;
   }
 
@@ -995,7 +1029,7 @@ h3,
   }
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1250px) {
   /* UTILITY CLASSES */
 
   .hidden-in-mobile {
@@ -1128,7 +1162,9 @@ h3,
   }
 
   .tab__display__item--active .button--more-info {
+    margin: 0;
     margin-top: 33px;
+    display: block;
   }
 
   .img-wrapper--tab {
@@ -1159,7 +1195,7 @@ h3,
   /* downloads section */
   .section--downloads {
     padding-top: 305px;
-    padding-bottom: 90px;
+    padding-bottom: 0;
   }
 
   .section--downloads > .section__text {
@@ -1170,6 +1206,7 @@ h3,
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 59px;
   }
 
   .card {
@@ -1177,9 +1214,20 @@ h3,
     border-radius: 1.125rem;
     padding: 1.5rem;
     box-shadow: 2px 6px 7px 4px rgba(0, 0, 0, 0.08);
-    max-width: 280px;
-    margin: 3.4rem auto;
+    max-width: 25.15%;
+    min-width: 280px;
+    margin: 4.6% 1.62%;
     overflow: hidden;
+  }
+
+  .card:first-child {
+    margin-top: 0;
+    margin-bottom: calc(4.6% * 2);
+  }
+
+  .card:last-child {
+    margin-bottom: 0;
+    margin-top: calc(4.6% * 2);
   }
 
   .img-wrapper--browser-icon > img {
@@ -1187,12 +1235,12 @@ h3,
   }
 
   .heading--downloads {
-    margin-top: 1rem;
+    margin-top: 20px;
     margin-bottom: 0.5rem;
   }
 
   .img-wrapper--dots {
-    margin: 29px -1.5rem 1.5rem -1.5rem;
+    margin: 32px -1.5rem 1.5rem -1.5rem;
   }
 
   .button-container--downloads > .button {
@@ -1201,6 +1249,7 @@ h3,
 
   /* faq section */
   .section--faq {
+    padding-top: 115px;
     padding-bottom: 149px;
     margin: 0 auto;
     width: 60%;
@@ -1237,7 +1286,7 @@ h3,
   .heading--special {
     font-weight: 400;
     letter-spacing: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .section--join--form-error {
@@ -1321,5 +1370,10 @@ h3,
     max-height: 300px;
     padding: 2px 11px 6px 11px;
     height: auto;
+  }
+
+  /* footer section */
+  .social-links--footer {
+    margin-right: 11.3%;
   }
 }
