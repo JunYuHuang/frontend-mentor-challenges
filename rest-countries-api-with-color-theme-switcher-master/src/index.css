@@ -63,6 +63,14 @@ h6,
   font-weight: 500;
 }
 
+/* UTILTIES */
+/* for really long text */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 /* COMMON */
 .main-wrapper {
   padding: 0 0.875rem;
@@ -109,10 +117,15 @@ h6,
   flex-direction: row;
   transition: filter 0.3s;
   position: relative;
+  transition: border-bottom 0.3s;
+  border-bottom: solid 0.15rem transparent;
+  border-radius: 0;
 }
 
 .button--dark-mode:hover {
   filter: brightness(0.9);
+  cursor: pointer;
+  border-bottom: solid 0.15rem var(--color-very-dark-blue-text);
 }
 
 .icon-container {
@@ -281,12 +294,13 @@ h6,
   background-color: white;
   border-radius: 0.4rem;
   width: 265px;
-  height: 339px;
+  height: 336px;
   overflow: hidden;
   box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.1),
     0px 6px 5px 0px rgba(0, 0, 0, 0.1);
   margin: 0 auto 39px auto;
   transition: filter 0.3s;
+  position: relative;
 }
 
 .card:hover {
@@ -294,13 +308,21 @@ h6,
   filter: brightness(0.9);
 }
 
+.card__img-container {
+  height: 166px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .card__img-container > img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 166px;
+  object-fit: cover;
 }
 
 .card__text {
   padding: 28px 22px 28px 22px;
+  text-overflow: ellipsis;
 }
 
 .card__text__title {
@@ -375,6 +397,7 @@ h6,
 .detailDisplay__text__title {
   font-weight: 800;
   font-size: 1.4rem;
+  color: black;
 }
 
 .detailDisplay__text__group {
