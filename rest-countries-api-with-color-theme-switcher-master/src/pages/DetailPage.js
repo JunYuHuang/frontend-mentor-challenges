@@ -1,7 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DetailPage = () => {
+const DetailPage = ({ errorMessage, currentCountry, setCurrentCountry }) => {
+  function formatLanguages(array) {
+    let formattedString = "";
+
+    array.forEach(arrayItem => {
+      formattedString += `${arrayItem.name}, `;
+    });
+    // for (let i = 0; i < array.length; i++) {
+    //   let term = i.name;
+    //   let delimiter = ", ";
+    //   if (array.length > 2 || i === array.length - 1) {
+    //     delimiter = "";
+    //   } else {
+    //     delimiter = ", ";
+    //   }
+    //   formattedString += term + delimiter;
+    // }
+
+    return formattedString;
+  }
+
+  const formattedBorderCountries = currentCountry.borders.map(borderCountry => {
+    return (
+      <Link
+        to={`/country/${borderCountry}`}
+        key={borderCountry}
+        className="button button--border"
+        onClick={() => console.log("gay")}
+      >
+        {borderCountry}
+      </Link>
+    );
+  });
+
   return (
     <section className="page page--detail">
       <Link to="/" className="button button--back">
@@ -13,38 +46,60 @@ const DetailPage = () => {
       <div className="detailDisplay">
         <div className="detailDisplay__img-container">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/1280px-Flag_of_Belgium_%28civil%29.svg.png"
-            alt="The Flag of Belgium"
+            src={currentCountry.flag}
+            alt={`The flag of ${currentCountry.name}`}
           />
         </div>
         <section className="detailDisplay__text">
-          <h2 className="detailDisplay__text__title">Belgium</h2>
+          <h2 className="detailDisplay__text__title">
+            {currentCountry.name ? currentCountry.name : errorMessage}
+          </h2>
           <div className="detailDisplay__text__group detailDisplay__text__group--1">
             <p className="detailDisplay__text__fact">
-              <strong>Native Name:&nbsp;</strong>Belgie
+              <strong>Native Name:&nbsp;</strong>
+              {currentCountry.nativeName
+                ? currentCountry.nativeName
+                : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Population:&nbsp;</strong>11,319,511
+              <strong>Population:&nbsp;</strong>
+              {currentCountry.population
+                ? currentCountry.population.toLocaleString("en-US")
+                : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Region:&nbsp;</strong>Europe
+              <strong>Region:&nbsp;</strong>
+              {currentCountry.region ? currentCountry.region : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Sub Region:&nbsp;</strong>Western Europe
+              <strong>Sub Region:&nbsp;</strong>
+              {currentCountry.subregion
+                ? currentCountry.subregion
+                : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Capital:&nbsp;</strong>Brussels
+              <strong>Capital:&nbsp;</strong>
+              {currentCountry.capital ? currentCountry.capital : errorMessage}
             </p>
           </div>
           <div className="detailDisplay__text__group detailDisplay__text__group--2">
             <p className="detailDisplay__text__fact">
-              <strong>Top Level Domain:&nbsp;</strong>.be
+              <strong>Top Level Domain:&nbsp;</strong>
+              {currentCountry.topLevelDomain[0]
+                ? currentCountry.topLevelDomain[0]
+                : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Currencies:&nbsp;</strong>Euro
+              <strong>Currencies:&nbsp;</strong>
+              {currentCountry.currencies[0].name
+                ? currentCountry.currencies[0].name
+                : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Language:&nbsp;</strong>Dutch, French, German
+              <strong>Language:&nbsp;</strong>
+              {currentCountry.languages
+                ? formatLanguages(currentCountry.languages)
+                : errorMessage}
             </p>
           </div>
           <div className="detailDisplay__text__group detailDisplay__text__group--borders">
@@ -52,9 +107,12 @@ const DetailPage = () => {
               Border Countries:
             </h3>
             <div className="button-container button-container--border">
-              <button className="button button--border">France</button>
+              {currentCountry.borders.length > 0
+                ? formattedBorderCountries
+                : errorMessage}
+              {/* <button className="button button--border">France</button>
               <button className="button button--border">Germany</button>
-              <button className="button button--border">Netherlands</button>
+              <button className="button button--border">Netherlands</button> */}
             </div>
           </div>
         </section>

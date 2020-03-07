@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const HomePage = ({ countries }) => {
+const HomePage = ({ errorMessage, countries, setCurrentCountry }) => {
+  // state
+  const [countryNameFilterTerm, setCountryNameFilterTerm] = useState("");
+  const [countryRegionFilterTerm, setCountryRegionFilterTerm] = useState("");
+
+  // updater functions
+  function updateCountryNameFilter(searchTerm) {
+    // update state only if actually term actually changed to a different one
+    if (countryNameFilterTerm !== searchTerm) {
+      setCountryNameFilterTerm(searchTerm);
+    }
+  }
+
   function toggleDropdownMenu() {
     const chevronIcon = document.querySelector(".icon-container--dropdown");
     const dropdownList = document.querySelector(".input-group--dropdown__list");
@@ -8,7 +21,13 @@ const HomePage = ({ countries }) => {
     dropdownList.classList.toggle("input-group--dropdown__list--active");
   }
 
-  function updateSelectedRegion(region) {
+  function updateRegionFilter(region) {
+    // update state only if actually term actually changed to a different one
+    if (countryRegionFilterTerm !== region) {
+      setCountryRegionFilterTerm(region);
+    }
+
+    // update visuals
     const dropdownButtonText = document.querySelector(
       ".button--dropdown__text"
     );
@@ -21,16 +40,15 @@ const HomePage = ({ countries }) => {
     }
   }
 
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   const dropdownItemList = regions.map(region => {
     return (
-      <li className="input-group--dropdown__list__item">
+      <li key={region} className="input-group--dropdown__list__item">
         <button
           className="button"
-          value={region}
           onClick={() => {
             toggleDropdownMenu();
-            updateSelectedRegion(region);
+            updateRegionFilter(region);
           }}
         >
           {region}
@@ -39,42 +57,60 @@ const HomePage = ({ countries }) => {
     );
   });
 
-  const countriesList = countries.map(country => {
-    return (
-      <div className="card" data-country-id={country.alpha3Code}>
-        <div className="card__img-container">
-          <img src={country.flag} alt={`The flag of ${country.name}`} />
-        </div>
-        <section className="card__text ellipsis">
-          <h2 className="card__text__title ellipsis">{country.name}</h2>
-          <p className="card__text__fact">
-            <strong>Population:</strong> {country.population}
-          </p>
-          <p className="card__text__fact">
-            <strong>Region:</strong> {country.region}
-          </p>
-          <p className="card__text__fact">
-            <strong>Capital:</strong> {country.capital}
-          </p>
-        </section>
-      </div>
-    );
-  });
-
-  function preventSubmit(e) {
-    e.preventDefault();
-  }
+  const countriesList = countries
+    .filter(country => country.region.includes(countryRegionFilterTerm))
+    .filter(country => {
+      let countryName = country.name.toLowerCase();
+      let searchTerm = countryNameFilterTerm.toLowerCase();
+      return countryName.includes(searchTerm);
+    })
+    .map(country => {
+      // use alpha3code property as "countryID" key
+      return (
+        <Link
+          to={`/country/${country.alpha3Code}`}
+          className="card"
+          key={country.alpha3Code}
+          onClick={() => setCurrentCountry(country)}
+        >
+          <div className="card__img-container">
+            <img src={country.flag} alt={`The flag of ${country.name}`} />
+          </div>
+          <section className="card__text ellipsis">
+            <h2 className="card__text__title ellipsis">
+              {country.name ? country.name : errorMessage}
+            </h2>
+            <p className="card__text__fact">
+              <strong>Population:</strong>{" "}
+              {country.population
+                ? country.population.toLocaleString("en-US")
+                : errorMessage}
+            </p>
+            <p className="card__text__fact">
+              <strong>Region:</strong>{" "}
+              {country.region ? country.region : errorMessage}
+            </p>
+            <p className="card__text__fact">
+              <strong>Capital:</strong>{" "}
+              {country.capital ? country.capital : errorMessage}
+            </p>
+          </section>
+        </Link>
+      );
+    });
 
   return (
     <section>
-      <form className="form" onSubmit={e => preventSubmit(e)}>
+      <form className="form" onSubmit={e => e.preventDefault()}>
         <div className="input-group input-group--search">
           <input
             className="input input--search"
             id="input--search"
             type="text"
             placeholder="Search for a country..."
+            onKeyUp={e => updateCountryNameFilter(e.target.value)}
           />
+          {/* {console.log(countryNameFilterTerm)} */}
           <label className="label" htmlFor="input--search">
             Country Search
           </label>

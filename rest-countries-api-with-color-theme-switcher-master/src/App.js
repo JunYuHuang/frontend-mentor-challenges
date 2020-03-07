@@ -6,27 +6,21 @@ import Header from "./common/Header";
 import history from "./history";
 
 function App() {
-  // state
+  // state & vars
   const [countriesList, setCountriesList] = useState([]);
-  const [country, setCountry] = useState([]);
-  const [countryNameFilterTerm, setCountryNameFilterTerm] = useState("");
-  const [countryRegionFilterTerm, setCountryRegionFilterTerm] = useState("");
-
-  // global consts and vars
-  const BASE_API_URL = "https://restcountries.eu/rest/v2";
-  const HOME_PAGE_API_URL =
-    BASE_API_URL + "/all?fields=alpha3Code;flag;name;population;region;capital";
-  const DETAIL_PAGE_API_URL =
-    BASE_API_URL +
-    "/all?fields=alpha3Code;flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;";
+  const [country, setCountry] = useState({});
+  const [darkMode, setDarkMode] = useState(false);
+  const errorMessage = "not applicable";
 
   // api call for country list for home page
   useEffect(() => {
-    fetch(HOME_PAGE_API_URL)
+    const API_URL =
+      "https://restcountries.eu/rest/v2/all?fields=alpha3Code;flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;";
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(res => {
         setCountriesList(res);
-        console.log(countriesList);
       })
       .catch(err => console.log(err));
   }, []);
@@ -37,10 +31,18 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <HomePage countries={countriesList} />
+            <HomePage
+              errorMessage={errorMessage}
+              countries={countriesList}
+              setCurrentCountry={setCountry}
+            />
           </Route>
-          <Route exact path="/countries/:id">
-            <DetailPage />
+          <Route exact path="/country/:id">
+            <DetailPage
+              errorMessage={errorMessage}
+              currentCountry={country}
+              setCurrentCountry={setCountry}
+            />
           </Route>
         </Switch>
       </Router>
