@@ -73,20 +73,22 @@ h6,
 
 /* COMMON */
 .main-wrapper {
-  padding: 0 0.875rem;
+  /* padding: 0 0.875rem; */
+  padding: 0 3.7333%;
   background-color: var(--color-very-light-gray);
   /* background-color: red; */
 }
 
 /* nav */
+
 .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.7rem 0.875rem;
-  margin: 0 -0.875rem;
+  padding: 1.7rem 3.7333%;
+  /* margin: 0 -3.7333%; */
   /* background-color: beige; */
-  border: 0.15rem solid var(--color-offwhite);
+  border-bottom: 0.15rem solid var(--color-offwhite);
   box-shadow: 0px 1.5px 3px 0px rgba(0, 0, 0, 0.1);
   position: relative;
   background-color: var(--color-white);
@@ -106,7 +108,6 @@ h6,
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 0.4rem;
-  /* transition: 0.3s; */
 }
 
 .button--dark-mode {
@@ -164,7 +165,7 @@ h6,
 
 .input--search {
   width: 100%;
-  /* padding: 0.8rem 0.8rem 0.8rem 70px; */
+  max-width: 480px;
   padding: 0.8rem 0.8rem 0.8rem 70px;
   border: 0.15rem solid var(--color-offwhite);
   box-shadow: 0px 1.5px 3px 0px rgba(0, 0, 0, 0.1);
@@ -200,8 +201,11 @@ h6,
 
 .input-group--dropdown {
   margin-top: 38px;
-  width: 55%;
-  min-width: 120px;
+  width: 200px;
+}
+
+.input-group--dropdown:hover {
+  cursor: pointer;
 }
 
 .button--dropdown {
@@ -222,6 +226,7 @@ h6,
 
 .button--dropdown:hover {
   filter: brightness(0.9);
+  cursor: pointer;
 }
 
 .capitalizedText {
@@ -287,21 +292,26 @@ h6,
 
 /* CardList and Card */
 .card-grid-container {
-  margin: 2rem auto 28px auto;
+  margin: 2rem 0 28px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 265px);
+  gap: 38px;
+  grid-gap: 38px;
+  justify-items: center;
+  justify-content: center;
 }
 
 .card {
   display: block;
   background-color: white;
   border-radius: 0.4rem;
-  width: 265px;
+  min-width: 265px;
+  max-width: 265px;
   height: 336px;
   overflow: hidden;
   box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.1),
     0px 6px 5px 0px rgba(0, 0, 0, 0.1);
-  margin: 0 auto 39px auto;
   transition: filter 0.3s;
-  position: relative;
 }
 
 .card:hover {
@@ -346,8 +356,10 @@ h6,
 /* DETAIL PAGE */
 
 .page--detail {
-  margin: 0 -0.875rem;
-  padding: 0 calc(2 * 0.875rem);
+  /* margin: 0 -0.875rem; */
+  /* padding: 0 calc(2 * 0.875rem); */
+  margin: 0 -3.7333%;
+  padding: 0 calc(2 * 3.7333%);
 }
 
 .button--back {
@@ -450,4 +462,51 @@ h6,
   display: flex;
   flex-wrap: wrap;
   margin-bottom: calc(66px - 9px);
+}
+
+@media only screen and (min-width: 850px) {
+  .nav {
+    padding: 1.5rem 5.555%;
+  }
+
+  .main-wrapper {
+    padding: 0 5.555%;
+  }
+
+  .app-logo {
+    font-size: 1.5rem;
+  }
+
+  /* home page */
+  .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 48px 0;
+  }
+
+  .input--search {
+    margin: 0;
+    width: 480px;
+  }
+
+  .icon-container--search {
+    top: 0;
+    bottom: auto;
+    height: 100%;
+  }
+
+  .input-group--dropdown {
+    margin: 0;
+  }
+
+  .card-grid-container {
+    gap: 70px;
+    grid-gap: 70px;
+    grid-template-columns: repeat(auto-fill, 265px);
+  }
+
+  .card {
+    /*  */
+  }
 }

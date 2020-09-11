@@ -3,11 +3,23 @@ import { Link } from "react-router-dom";
 
 const DetailPage = ({ errorMessage, currentCountry, setCurrentCountry }) => {
   function formatLanguages(array) {
+    // return array.name.join(", ");
     let formattedString = "";
-
-    array.forEach(arrayItem => {
-      formattedString += `${arrayItem.name}, `;
-    });
+    // array.forEach(arrayItem => {
+    //   formattedString += `${arrayItem.name}, `;
+    // });
+    let lastArrayElementIndex = array.length - 1;
+    for (let i = 0; i < array.length; i++) {
+      if (array[lastArrayElementIndex]) {
+        formattedString += `${array[i].name}`;
+      } else {
+        formattedString += `${array[i].name}, `;
+      }
+    }
+    return formattedString;
+    //
+    //
+    //
     // for (let i = 0; i < array.length; i++) {
     //   let term = i.name;
     //   let delimiter = ", ";
@@ -18,22 +30,24 @@ const DetailPage = ({ errorMessage, currentCountry, setCurrentCountry }) => {
     //   }
     //   formattedString += term + delimiter;
     // }
-
-    return formattedString;
   }
 
-  const formattedBorderCountries = currentCountry.borders.map(borderCountry => {
-    return (
-      <Link
-        to={`/country/${borderCountry}`}
-        key={borderCountry}
-        className="button button--border"
-        onClick={() => console.log("gay")}
-      >
-        {borderCountry}
-      </Link>
-    );
-  });
+  const formattedBorderCountries = currentCountry.borders.map(
+    (borderCountry) => {
+      // console.log(borderCountry);
+
+      return (
+        <Link
+          to={`/country/${borderCountry}`}
+          key={borderCountry}
+          className="button button--border"
+          onClick={() => console.log("gay")}
+        >
+          {borderCountry}
+        </Link>
+      );
+    }
+  );
 
   return (
     <section className="page page--detail">
@@ -96,7 +110,7 @@ const DetailPage = ({ errorMessage, currentCountry, setCurrentCountry }) => {
                 : errorMessage}
             </p>
             <p className="detailDisplay__text__fact">
-              <strong>Language:&nbsp;</strong>
+              <strong>Languages:&nbsp;</strong>
               {currentCountry.languages
                 ? formatLanguages(currentCountry.languages)
                 : errorMessage}

@@ -17,7 +17,7 @@ function Header() {
           <div className="icon-container icon-container--dark">
             <ion-icon name="moon"></ion-icon>
           </div>
-          Dark Mode
+          <span className="button--text">Dark Mode</span>
         </button>
       </nav>
     </header>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <main class="main-wrapper">
+      <section class="section section--form-container">
+        <h1 class="h1 heading--main">IP Address Tracker</h1>
+        <form action="./" class="form form-group" method="GET">
+          <input
+            type="text"
+            id="form-group__input__text"
+            class="form-group__input form-group__input__text ellipsis"
+            placeholder="Search for any IP address or domain"
+          />
+          <label class="form-group__label" for="form-group__input__text">
+            Search for any IP address or domain
+          </label>
+          <button
+            class="form-group__input form-group__input__submit"
+            type="submit"
+          >
+            <div class="img-wrapper img-wrapper--icon-arrow">
+              <img
+                src="./images/icon-arrow.svg"
+                alt="An arrow icon pointing to the right."
+              />
+            </div>
+          </button>
+        </form>
+        <ul class="info-display">
+          <li class="info-display__item">
+            <h4 class="info-display__item__title">IP Address</h4>
+            <div
+              class="info-display__item__content info-display__item--ip-address"
+            >
+              192.212.174.101
+            </div>
+          </li>
+          <li class="info-display__item">
+            <h4 class="info-display__item__title">Location</h4>
+            <div
+              class="info-display__item__content info-display__item--ip-address"
+            >
+              Brooklyn, NY 10001
+            </div>
+          </li>
+          <li class="info-display__item">
+            <h4 class="info-display__item__title">Timezone</h4>
+            <div
+              class="info-display__item__content info-display__item--ip-address"
+            >
+              UTC -05:00
+            </div>
+          </li>
+          <li class="info-display__item">
+            <h4 class="info-display__item__title">ISP</h4>
+            <div
+              class="info-display__item__content info-display__item--ip-address"
+            >
+              SpaceX Starlink
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="section section--map-background"></section>
+    </main>
+  </body>
+</html>

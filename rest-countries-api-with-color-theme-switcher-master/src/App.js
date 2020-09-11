@@ -18,34 +18,36 @@ function App() {
       "https://restcountries.eu/rest/v2/all?fields=alpha3Code;flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;";
 
     fetch(API_URL)
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         setCountriesList(res);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="main-wrapper">
-      <Router history={history}>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <HomePage
-              errorMessage={errorMessage}
-              countries={countriesList}
-              setCurrentCountry={setCountry}
-            />
-          </Route>
-          <Route exact path="/country/:id">
-            <DetailPage
-              errorMessage={errorMessage}
-              currentCountry={country}
-              setCurrentCountry={setCountry}
-            />
-          </Route>
-        </Switch>
-      </Router>
+    <div>
+      <Header />
+      <div className="main-wrapper">
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/">
+              <HomePage
+                errorMessage={errorMessage}
+                countries={countriesList}
+                setCurrentCountry={setCountry}
+              />
+            </Route>
+            <Route exact path="/country/:id">
+              <DetailPage
+                errorMessage={errorMessage}
+                currentCountry={country}
+                setCurrentCountry={setCountry}
+              />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 }
