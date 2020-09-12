@@ -48,6 +48,10 @@ button {
   box-sizing: border-box;
 }
 
+input:focus {
+  outline: none;
+}
+
 h1,
 .h1,
 h2,
