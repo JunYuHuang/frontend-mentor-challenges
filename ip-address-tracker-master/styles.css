@@ -201,7 +201,8 @@ h6,
 }
 
 .section--map-background {
-  min-height: calc(100vh - 472px + 160px);
+  max-height: calc(100vh - 472px + 160px);
+  overflow: hidden;
   background-color: white;
 }
 
@@ -259,7 +260,8 @@ h6,
   }
 
   .section--map-background {
-    min-height: calc(100vh - 448px + 160px);
+    max-height: calc(100vh - 448px + 160px);
+    overflow: hidden;
   }
 
   #mapid {
