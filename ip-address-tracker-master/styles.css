@@ -48,6 +48,10 @@ button {
   box-sizing: border-box;
 }
 
+button:focus {
+  outline: none;
+}
+
 input:focus {
   outline: none;
 }
