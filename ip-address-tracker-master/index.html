@@ -2,8 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
     <link rel="stylesheet" href="./styles.css" />
     <link
       rel="icon"
@@ -17,7 +25,7 @@
     <main class="main-wrapper">
       <section class="section section--form-container">
         <h1 class="h1 heading--main">IP Address Tracker</h1>
-        <form action="./" class="form form-group" method="GET">
+        <form action="" class="form form-group">
           <input
             type="text"
             id="form-group__input__text"
@@ -43,7 +51,7 @@
           <li class="info-display__item">
             <h4 class="info-display__item__title">IP Address</h4>
             <div
-              class="info-display__item__content info-display__item--ip-address"
+              class="info-display__item__content info-display__item--ip-address ellipsis"
             >
               192.212.174.101
             </div>
@@ -51,7 +59,7 @@
           <li class="info-display__item">
             <h4 class="info-display__item__title">Location</h4>
             <div
-              class="info-display__item__content info-display__item--ip-address"
+              class="info-display__item__content info-display__item--location ellipsis"
             >
               Brooklyn, NY 10001
             </div>
@@ -59,7 +67,7 @@
           <li class="info-display__item">
             <h4 class="info-display__item__title">Timezone</h4>
             <div
-              class="info-display__item__content info-display__item--ip-address"
+              class="info-display__item__content info-display__item--timezone ellipsis"
             >
               UTC -05:00
             </div>
@@ -67,14 +75,24 @@
           <li class="info-display__item">
             <h4 class="info-display__item__title">ISP</h4>
             <div
-              class="info-display__item__content info-display__item--ip-address"
+              class="info-display__item__content info-display__item--isp ellipsis"
             >
               SpaceX Starlink
             </div>
           </li>
         </ul>
       </section>
-      <section class="section section--map-background"></section>
+      <section class="section section--map-background">
+        <div id="mapid"></div>
+      </section>
     </main>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script type="module" src="./apis/leafletjs.js"></script>
+    <script type="module" src="./apis/ipify.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>

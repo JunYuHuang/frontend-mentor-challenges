@@ -65,11 +65,32 @@ h6,
   font-weight: 500;
 }
 
+/* utilities */
+
 .ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.shake-horizontal {
+  animation: shake 0.3s;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0.5rem, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-0.5rem, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(0.5rem, 0) rotate(0deg);
+  }
+}
+
+/* custom elements */
 
 .main-wrapper {
   text-align: center;
@@ -81,6 +102,7 @@ h6,
   background-image: url("./images/pattern-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top;
   min-height: 460px;
 }
 
@@ -90,6 +112,7 @@ h6,
   font-weight: 500;
   font-size: 1.5rem;
   padding: 32px 0 32px 0;
+  text-shadow: 2px 2px 0 hsla(0, 0%, 0%, 0.15);
 }
 
 .form-group {
@@ -105,7 +128,7 @@ h6,
 .form-group__label {
   position: absolute;
   z-index: -20;
-  left: -500px;
+  left: -1000%;
 }
 
 .form-group__input {
@@ -154,7 +177,7 @@ h6,
 }
 
 .info-display__item {
-  padding-top: 23px;
+  padding: 23px 23px 0 23px;
 }
 
 .info-display__item:last-child {
@@ -180,10 +203,21 @@ h6,
 .section--map-background {
   min-height: calc(100vh - 472px + 160px);
   background-color: white;
-  z-index: -10;
+}
+
+#mapid {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 140%;
+  position: relative;
+  z-index: 0;
 }
 
 @media only screen and (min-width: 1200px) {
+  .ellipsis {
+    white-space: normal;
+  }
+
   .section--form-container {
     min-height: 364px;
   }
@@ -226,5 +260,11 @@ h6,
 
   .section--map-background {
     min-height: calc(100vh - 448px + 160px);
+  }
+
+  #mapid {
+    width: 100%;
+    /* padding-bottom: 650px; */
+    padding-bottom: 54%;
   }
 }
