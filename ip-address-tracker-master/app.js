@@ -104,4 +104,7 @@ searchForm.addEventListener("submit", (e) => {
       searchForm.classList.toggle("shake-horizontal");
     }, 500);
   }
+
+  // re-focus on search input
+  searchFormTextInput.focus();
 });
