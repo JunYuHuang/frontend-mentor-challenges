@@ -27,6 +27,9 @@ function updateDisplayInfo(
   resultISPContent.textContent = resultISP;
 }
 
+// CORS proxy server
+let CORS_PROXY_SERVER_URL = "https://cors-anywhere.herokuapp.com/";
+
 // Leafletjs Map API
 // default map area is around "Brooklyn, NY 10001"
 let myMap = L.map("mapid").setView([40.786, -74.005], 17);
@@ -78,11 +81,9 @@ searchForm.addEventListener("submit", (e) => {
       fullIpifyAPIURL = `${ipifyApiURLWithKey}&ipAddress=${searchTerm}`;
     }
 
-    fetch(fullIpifyAPIURL)
+    fetch(`${CORS_PROXY_SERVER_URL}${fullIpifyAPIURL}`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-
         // update text info
         let ipAddress = res.ip;
         // location format doesn't match mock-ups but I'm too lazy to implement a full state/province to its abbreviation converter
